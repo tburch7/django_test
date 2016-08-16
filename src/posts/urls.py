@@ -26,10 +26,12 @@ from posts.views import (
 
 urlpatterns = [
 
-    url(r'^$', post_list),
+    url(r'^$', post_list, name='list'),
     url(r'^create/$', post_create),
-    url(r'^(?P<id>\d+)/$', post_detail, name='detail'), 
-    url(r'^update/$', post_update),
-    url(r'^delete/$', post_delete),
+    url(r'^(?P<id>[-a-zA-Z0-9_]+)/$', post_detail, name='detail'),
+    url(r'^(?P<id>[-a-zA-Z0-9_]+)/edit/$', post_update, name='update'),
+    url(r'^(?P<id>[-a-zA-Z0-9_]+)/delete/$', post_delete, name='delete'),
 
 ]
+
+#Try Django 1.9 - 20 of 38 - Model Form & Create View

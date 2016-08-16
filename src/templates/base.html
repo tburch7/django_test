@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<title>{% block head_title %} Home Page! {%endblock head_title%}</title>
+	<link rel='stylesheet' href='{% static "css/base.css" %}' />
+	
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+</head>
+
+
+<style>
+{% block style %}
+
+{% endblock style%}
+</style>
+
+
+<body>
+{% include "messages_display.html" %}
+
+<div class='container'>
+{%block content %}
+
+{% endblock content %}
+</div>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<!-- jQuery -->
+<script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+
+<!--Marked Down -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js'></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".content-markdown").each(function(){
+	var content = $(this).text()
+	console.log(content)
+	var markedContent = marked(content)
+	console.log(markedContent)
+	$(this).html(markedContent)
+	})
+})
+
+</script>
+</body>
+</html>
+
